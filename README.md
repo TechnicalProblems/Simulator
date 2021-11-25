@@ -1,4 +1,4 @@
-# BFMC Simulator Project
+# BFMC Simulator Project - Technical Problems
 
 The project contains the entire Gazebo simulator developed by the organizing team as well as a ROS nod network example for gathering data from the simulator and controlling the car. 
 
@@ -7,12 +7,12 @@ By following the guide below you can get started with the simulator and start de
 
 ## 1. Installing the tools
 - Install [Ubuntu 20.04.2.0 LTS (Focal Fossa) ](https://releases.ubuntu.com/20.04/) - Desktop Image. For best performances, avoid using a virtual machine.
-- Install [ROS Noetic Ninjemys](http://wiki.ros.org/noetic/Installation/Ubuntu) - Desktop-Full Install.
+- Install [ROS Noetic Ninjemys](http://wiki.ros.org/noetic/Installation/Ubuntu) - Desktop-Full Install + dependencies for building packages.
      
 
 ## 2. Cloning the repository
 
-Clone the repository inside the `Documents` folder (or perform a commit on the repository)
+Clone the repository inside the `Documents` folder (or download zip and rename Simulator-master to Simulator)
 
 
 ## 3. setup of the repository
@@ -38,6 +38,12 @@ and add those two lines at the begining of the file (don't forget to change {YOU
 export GAZEBO_MODEL_PATH="/home/{YOUR_USER}/Documents/Simulator/src/models_pkg:$GAZEBO_MODEL_PATH"
 export ROS_PACKAGE_PATH="/home/{YOUR_USER}/Documents/Simulator/src:$ROS_PACKAGE_PATH"
 ```
+
+finally, run
+```sh
+./setup.sh
+```
+to set the executable permission for some files
 
 ## 4. Running of the simulation
 
@@ -90,12 +96,22 @@ Now the simulator will subscribe to some info on the topics and you can publish 
 ### 5.2. Interaction with the PC
 
 To check an example of publishing & subscribing, after the simulaiton was started, you can open two other terminals and source the devel/setup.bash inside.
-on one terminal, execute
+on one terminal, execute (with the terminal opened inside the `~/Documents/Simulator` directory)
 ```sh
+./start_camera.sh
+```
+or if you want to do it manually, run
+```sh
+source devel/setup.bash
 rosrun example camera.py
 ```
 and on another one you can execute
 ```sh
+./start_control.sh
+```
+or if you want to do it manually, run
+```sh
+source devel/setup.bash
 rosrun example control.py
 ```
 
