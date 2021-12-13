@@ -47,6 +47,14 @@ to set the executable permission for some files
 
 ## 4. Running of the simulation
 
+Automatically, you can run
+```
+./start_sim.sh
+```
+to start the simulator.
+
+Alternatively, you can do it manually:
+
 For each terminal where you plan to use the ROS, you need to source the repository itself:
 
 ```sh
